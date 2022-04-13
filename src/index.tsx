@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import * as esbuild from 'esbuild-wasm'
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, SetStateAction } from 'react'
 import ReactDOM from 'react-dom'
 import { unpkgPathPlugin } from './plugins/unpkg-path-plugin'
 import { fetchPlugin } from './plugins/fetch-plugin'
@@ -69,7 +69,7 @@ const App = () => {
 
     return (
         <div>
-            <CodeEditor initialValue='//Write some code' />
+            <CodeEditor initialValue='//Write some code' onChange={(value) => setInput(value)} />
             <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
